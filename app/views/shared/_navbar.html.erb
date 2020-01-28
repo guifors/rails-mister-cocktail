@@ -1,0 +1,10 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <%= link_to "", cocktails_path, class: "fas fa-cocktail" %>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <%= link_to "Add cocktail", new_cocktail_path(@cocktail), class: "btn btn-outline-success my-2 my-sm-0" %>
+  </form>
+</nav>
+
+
+

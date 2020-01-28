@@ -1,0 +1,17 @@
+<%= render "shared/banner" %>
+<h1>Cocktails list</h1>
+
+<div class="container">
+  <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-md-4">
+          <%= link_to cocktail_path(cocktail), class: "card-link" do %>
+          <div class="card-category" style="width: 18rem;">
+            <%= cocktail.name %>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+</div>
+

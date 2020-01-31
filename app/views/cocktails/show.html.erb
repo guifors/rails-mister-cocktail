@@ -1,13 +1,36 @@
-<h1><%= @cocktail.name %></h1>
-
-<p>Add new dose</p>
-
-<%= render 'doses/new'%>
-
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %>: <%= dose.ingredient.name %></li>
-
-  <% end %>
-
-</ul>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <div class="row">
+      <div class="col-md-6">
+        <h2>Add dose:</h2>
+        <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <% if @cocktail.photo %>
+          <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+            <p>"No picture"</p>
+        <% end %>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Ingredients and doses:</h2>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.ingredient.name %>: <%= dose.description %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class= "col-md-4 offset-md-1">
+      <%= link_to "Add review", new_cocktail_review_path(@cocktail), class: "btn btn-primary" %>
+      <h2>Reviews:</h2>
+      <ul>
+        <% @cocktail.reviews.each do |review| %>
+          <li><%= review.content %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

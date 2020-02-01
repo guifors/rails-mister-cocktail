@@ -6,8 +6,8 @@
         <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
       </div>
       <div class="col-md-4 offset-md-1">
-        <% if @cocktail.photo %>
-          <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+        <% if @cocktail.photo.attached? %>
+          <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
         <% else %>
             <p>"No picture"</p>
         <% end %>
